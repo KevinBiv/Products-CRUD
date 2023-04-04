@@ -21,13 +21,16 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
-	<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="ds" class="org.apache.tomcat.jdbc.pool.DataSource">
 	    <property name="driverClassName" value="org.postgresql.Driver" />
 	    <property name="url" value="jdbc:postgresql://localhost:5432/postgres" />
 	    <property name="username" value="postgres" />
 	    <property name="password" value="Kevin@23237" />
 	</bean>
 	
-	
+	<!-- Wiring the data source bean to the ProductDAO bean -->
+	<bean id="productDAO" class="com.springmvc2.dao.ProductDAO">
+    	<property name="dataSource" ref="ds"/> <!-- Wire the data source bean to the ProductDAO bean -->
+	</bean>
 
 </beans>

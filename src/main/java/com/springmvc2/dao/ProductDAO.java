@@ -3,6 +3,7 @@ package com.springmvc2.dao;
 import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +11,7 @@ import com.springmvc2.model.Product;
 
 @Repository
 public class ProductDAO implements ProductDAOInterface {
+	
 	
 	private JdbcTemplate jdbcTemplate;
 	
@@ -34,7 +36,7 @@ public class ProductDAO implements ProductDAOInterface {
 
 	@Override
 	public void addProduct(Product product) {
-		String sql = "INSERT INTO PRODUCTS VALUES(?. ?, ?, ?)";
+		String sql = "INSERT INTO PRODUCTS VALUES(?, ?, ?, ?)";
 		jdbcTemplate.update(sql, product.getId(), product.getName(), product.getDescription(), product.getPrice());
 	}
 

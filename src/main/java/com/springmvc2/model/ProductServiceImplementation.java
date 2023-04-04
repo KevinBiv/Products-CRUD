@@ -3,9 +3,11 @@ package com.springmvc2.model;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.springmvc2.dao.ProductDAO;
 
+@Service
 public class ProductServiceImplementation implements ProductService {
 	
 	@Autowired
