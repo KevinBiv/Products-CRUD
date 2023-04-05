@@ -36,7 +36,7 @@ public class MainController {
 	@RequestMapping("/saveProduct")
 	public String saveProduct(@ModelAttribute("product") Product product) {
 		productService.addProduct(product);
-		return "index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/update")
@@ -49,7 +49,7 @@ public class MainController {
 	@RequestMapping("/updateProduct")
 	public String updateProduct(@ModelAttribute("product") Product product) {
 		productService.updateProduct(product);
-		return "index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/delete")
@@ -62,6 +62,6 @@ public class MainController {
 	@RequestMapping("deleteProduct")
 	public String deleteProduct(@ModelAttribute("product") Product product) {
 		productService.deleteProduct(product.getId());
-		return "index";
+		return "redirect:/";
 	}
 }
